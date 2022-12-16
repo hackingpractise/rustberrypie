@@ -4,6 +4,6 @@ target = "armv7a-none-eabi"
 
 rustflags = [
 # the GNU linker
-    "-C", "linker=arm-none-eabi-ld"
-#    "-C", " link-arg=--script=./linker.ld"
+#    "-C", "linker=arm-none-eabi-ld"
+    "-C", " link-arg=--script=./linker.ld"
 ]
