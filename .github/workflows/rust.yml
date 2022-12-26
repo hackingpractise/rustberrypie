@@ -2,9 +2,9 @@ name: Rust
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]
 
 env:
   CARGO_TERM_COLOR: always
@@ -15,9 +15,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Set up Rust toolchain
+        run: rustup target add armv7a-none-eabi
     - uses: actions/checkout@v3
     - name: Build
-      run: cargo build --verbose
+        run: cargo build --verbose
     - name: Run tests
-      run: cargo test --verbose
+        run: cargo test --verbose
 
