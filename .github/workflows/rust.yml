@@ -18,6 +18,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Set up Rust toolchain
       run: rustup target add armv7a-none-eabi
+    -name: Check
+      run: cargo clippy -- -D clippy::pedantic 
     - name: Build
       run: cargo build --verbose
     - name: Run tests
